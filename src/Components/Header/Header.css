@@ -1,0 +1,15 @@
+.navbarDesign {
+    background-color: transparent;
+    /* height: 3em; */
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
+    font-family: "Raleway", sans-serif;
+  }
+  
+  .navbarDesign .nav-link:hover {
+    color: white;
+  }
+  
+  .navbarDesign .nav-link {
+    color: rgb(239, 236, 236);
+  }
+  
