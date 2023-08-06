@@ -7,6 +7,7 @@ import { Container, Row, Col } from "react-bootstrap";
 // STYLES AND ASSETS
 import "./Home.css";
 import TaskList from "../../Components/TaskList/TaskList";
+import AddTask from "../../Components/AddTask/AddTask";
 
 
 function Home() {
@@ -18,6 +19,9 @@ function Home() {
             <Row>
                 <TaskList></TaskList>
 
+            </Row>
+            <Row>
+                <AddTask></AddTask>
             </Row>
         </Container>
     )

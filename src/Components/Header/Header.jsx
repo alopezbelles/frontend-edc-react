@@ -26,8 +26,8 @@ function Header() {
           />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto justify-content-center">
-              <Nav.Link href="#bookingList">Bookings List</Nav.Link>
-              <Nav.Link href="#addBooking">Add Booking</Nav.Link>
+              <Nav.Link href="#bookingList">Task List</Nav.Link>
+              <Nav.Link href="#addBooking">Add Task</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

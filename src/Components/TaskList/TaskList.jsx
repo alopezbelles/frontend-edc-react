@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col, Form, Button, Modal } from "react-bootstrap";
 import axios from "axios";
+// BOOTSTRAP
+import "bootstrap/dist/css/bootstrap.min.css";
 
 // STYLES AND ASSETS
 import "./TaskList.css";
@@ -74,7 +76,11 @@ function TaskList() {
   const handleDeleteTaskClick = (taskId) => {
     // Realizar la llamada a la API para eliminar la tarea
     axios
-      .delete(`https://backend-edc-sequelize-production.up.railway.app/tasks/deletetask/${taskId}`)
+      .delete("https://backend-edc-sequelize-production.up.railway.app/tasks/deletetask", {
+        data: {
+          id: taskId,
+        },
+      })
       .then((response) => {
         console.log(response.data); // Mensaje de éxito
   
@@ -93,7 +99,7 @@ function TaskList() {
   };
 
   return (
-    <Container className="containerTaskList">
+    <Container className="containerTaskList" id="bookingList">
       <h2>TASKS LIST:</h2>
       <Row className="row1TaskList">
         <ul style={{ listStyleType: "none" }}>

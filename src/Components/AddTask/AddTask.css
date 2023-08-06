@@ -1,0 +1,19 @@
+.addTaskContainerDesign{
+    background-color: #bebeb7;
+}
+
+
+.imputAddTaskDesign{
+    width: 50%;
+}
+
+.addTaskContainerDesign{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonDesignAddTask{
+    margin: 2em 2em;
+}
