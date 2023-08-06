@@ -3,17 +3,21 @@ import React from "react";
 // BOOTSTRAP
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col } from "react-bootstrap";
-import { Image } from "react-bootstrap";
 
 // STYLES AND ASSETS
 import "./Home.css";
+import TaskList from "../../Components/TaskList/TaskList";
 
 
 function Home() {
     return(
-        <Container>
+        <Container fluid className="homeDesign">
+            <Row className="row1Design">
+                <Col className="col1Design"></Col>
+            </Row>
             <Row>
-                <Col>HOLA, SOY HOME</Col>
+                <TaskList></TaskList>
+
             </Row>
         </Container>
     )

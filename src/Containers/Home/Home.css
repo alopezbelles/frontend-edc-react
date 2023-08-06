@@ -1,0 +1,28 @@
+.homeDesign {
+    margin: 0;
+    padding: 0;
+    width: auto;
+    height: auto;
+    position: relative;
+    overflow-x: hidden;
+  }
+  
+  .row1Design {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .col1Design {
+    background: url(../../Assets/background-web.png) no-repeat center center;
+    background-size: cover;
+    margin: 0;
+    width: 100%;
+    height: 80vh;
+  }
+
+  .row2Design {
+    background-color: #8f8196;
+    height: auto;
+  }
