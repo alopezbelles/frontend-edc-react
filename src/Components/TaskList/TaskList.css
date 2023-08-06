@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap");
+
+h2 {
+  color: black;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  font-family: "Raleway", sans-serif;
+}
+
+.containerTaskList{
+    background-color: #D6D6D1;
+}
+
+.row1TaskList {
+  display: flex;
+  /* flex-direction: row; */
+  justify-content: center;
+  align-items: center;
+  /* width: 100%; */
+
+}
+
+.col1Tasks {
+  flex: 1;
+}
+
+.col2Tasks {
+    flex: 1;
+}
+
+.col3Tasks {
+  display: flex;
+  /* max-width: 50%; */
+  align-items: center;
+  justify-content: center;
+}
+
+.formSelectDesign {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5em;
+  width: 60%;
+  margin-bottom: 1em;
+}
+
+.buttonDesign {
+    margin: 2px;
+  }
+
+.buttonsDiv{
+    margin-bottom: 2em;
+}
+
+.modalDesign {
+    background-color: #D6D6D1; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+
+  }
+
+.imputDesign{
+    width: 100%;
+    height: 2.5em;
+    font-family: "Raleway", sans-serif;
+
+}
