@@ -22,6 +22,7 @@ h2 {
 
 .col1Tasks {
   flex: 1;
+  margin-top: 1em;
 }
 
 .col2Tasks {
@@ -39,8 +40,9 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   height: 2.5em;
-  width: 60%;
+  width: 30%;
   margin-bottom: 1em;
 }
 
@@ -67,5 +69,15 @@ h2 {
     width: 100%;
     height: 2.5em;
     font-family: "Raleway", sans-serif;
+
+}
+
+.task-list li {
+  border-bottom: 1px solid black;
+}
+
+.modalTitleDesign{
+  font-family: "Raleway", sans-serif;
+
 
 }

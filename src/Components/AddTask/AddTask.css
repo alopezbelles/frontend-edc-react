@@ -1,19 +1,22 @@
-.addTaskContainerDesign{
-    background-color: #bebeb7;
+h3 {
+  margin: 1em;
 }
 
-
-.imputAddTaskDesign{
-    width: 50%;
+.addTaskContainerDesign {
+  background-color: #bebeb7;
 }
 
-.addTaskContainerDesign{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.imputAddTaskDesign {
+  width: 50%;
 }
 
-.buttonDesignAddTask{
-    margin: 2em 2em;
+.addTaskContainerDesign {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonDesignAddTask {
+  margin: 2em 2em;
 }

@@ -16,26 +16,23 @@ function TaskList() {
   const [newDescription, setNewDescription] = useState("");
 
   useEffect(() => {
-    // Realizar la solicitud HTTP al endpoint para obtener los datos
     axios
       .get(
         "http://backend-edc-sequelize-production.up.railway.app/tasks/getall"
       )
       .then((response) => {
-        // Actualizar el estado con los datos obtenidos
         setTasks(response.data);
-        // Inicializar el estado de las selecciones de status con el status de cada tarea
-        setSelectedStatuses(response.data.map((task) => task.status));
+        setSelectedStatuses(response.data.map((task) => task.category));
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
   }, []);
 
-  const handleStatusChange = (event, index) => {
-    const newSelectedStatuses = [...selectedStatuses];
-    newSelectedStatuses[index] = event.target.value;
-    setSelectedStatuses(newSelectedStatuses);
+  const handleCategoryChange = (event, index) => {
+    const newSelectedCategories = [...selectedStatuses];
+    newSelectedCategories[index] = event.target.value;
+    setSelectedStatuses(newSelectedCategories);
   };
 
   const handleUpdateTaskClick = (task) => {
@@ -46,13 +43,11 @@ function TaskList() {
   };
 
   const handleUpdateNowClick = () => {
-    // Obtener el nuevo status directamente de selectedStatuses usando el índice de la tarea seleccionada
-    const newStatus =
+    const newCategory =
       selectedStatuses[
         tasks.findIndex((task) => task.id_task === selectedTask?.id_task)
       ];
 
-    // Realizar la llamada a la API para actualizar la tarea
     axios
       .post(
         "https://backend-edc-sequelize-production.up.railway.app/tasks/edittask",
@@ -60,12 +55,11 @@ function TaskList() {
           id: selectedTask.id_task,
           title: newTitle,
           description: newDescription,
-          status: newStatus, // Usar el nuevo status obtenido anteriormente
+          status: newCategory,
         }
       )
       .then((response) => {
-        console.log(response.data); // Mensaje de éxito
-        // Cerrar la ventana emergente después de la actualización
+        console.log(response.data);
         setShowModal(false);
       })
       .catch((error) => {
@@ -74,20 +68,20 @@ function TaskList() {
   };
 
   const handleDeleteTaskClick = (taskId) => {
-    // Realizar la llamada a la API para eliminar la tarea
     axios
-      .delete("https://backend-edc-sequelize-production.up.railway.app/tasks/deletetask", {
-        data: {
-          id: taskId,
-        },
-      })
+      .delete(
+        "https://backend-edc-sequelize-production.up.railway.app/tasks/deletetask",
+        {
+          data: {
+            id: taskId,
+          },
+        }
+      )
       .then((response) => {
-        console.log(response.data); // Mensaje de éxito
-  
-        // Actualizar el estado local para reflejar la tarea eliminada
+        console.log(response.data);
         const updatedTasks = tasks.filter((t) => t.id_task !== taskId);
         setTasks(updatedTasks);
-        setSelectedStatuses(updatedTasks.map((t) => t.status));
+        setSelectedStatuses(updatedTasks.map((t) => t.category));
       })
       .catch((error) => {
         console.error("Error deleting task:", error);
@@ -102,21 +96,22 @@ function TaskList() {
     <Container className="containerTaskList" id="bookingList">
       <h2>TASKS LIST:</h2>
       <Row className="row1TaskList">
-        <ul style={{ listStyleType: "none" }}>
+        <ul className="task-list" style={{ listStyleType: "none" }}>
           {tasks.map((task, index) => (
             <li key={task.id_task}>
-              <Col className="col1Tasks">{task.title}</Col>
-              <Col className="col2Tasks">{task.description}</Col>
+              <Col className="col1Tasks">Title: {task.title}</Col>
+              <Col className="col2Tasks">Description: {task.description}</Col>
+              <Col className="col2Tasks">Status: {task.status}</Col>
               <Col className="col3Tasks">
                 <Form.Select
                   className="formSelectDesign"
                   value={selectedStatuses[index]}
-                  onChange={(event) => handleStatusChange(event, index)}
+                  onChange={(event) => handleCategoryChange(event, index)}
                   data-id={task.id_task}
                 >
-                  <option value="pending">Pending</option>
-                  <option value="completed">Completed</option>
-                  <option value="not completed">Not Completed</option>
+                  <option value="work">Work</option>
+                  <option value="personal">Personal</option>
+                  <option value="studies">Studies</option>
                 </Form.Select>
               </Col>
               <div className="buttonsDiv">
@@ -140,9 +135,65 @@ function TaskList() {
         </ul>
       </Row>
 
-      {/* Ventana emergente para actualizar la tarea */}
       <Modal show={showModal} onHide={handleCloseModal}>
-        {/* Resto del código del modal */}
+        <Modal.Header closeButton>
+          <Modal.Title className="modalTitleDesign">Edit Task</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="modalDesign">
+          <Form>
+            <Form.Group controlId="formTitle">
+              <Form.Label>Title</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter title"
+                value={newTitle}
+                onChange={(e) => setNewTitle(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group controlId="formDescription">
+              <Form.Label>Description</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={3}
+                placeholder="Enter description"
+                value={newDescription}
+                onChange={(e) => setNewDescription(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group controlId="formCategory">
+              <Form.Label>Category</Form.Label>
+              <Form.Select
+                value={
+                  selectedStatuses[
+                    tasks.findIndex(
+                      (task) => task.id_task === selectedTask?.id_task
+                    )
+                  ]
+                }
+                onChange={(event) =>
+                  handleCategoryChange(
+                    event,
+                    tasks.findIndex(
+                      (task) => task.id_task === selectedTask?.id_task
+                    )
+                  )
+                }
+              >
+                <option value="work">Work</option>
+                <option value="personal">Personal</option>
+                <option value="studies">Studies</option>
+              </Form.Select>
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseModal}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleUpdateNowClick}>
+            Update Task
+          </Button>
+        </Modal.Footer>
       </Modal>
     </Container>
   );
