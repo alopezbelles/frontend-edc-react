@@ -19,7 +19,7 @@ function TaskList() {
   useEffect(() => {
     axios
       .get(
-        "http://backend-edc-sequelize-production.up.railway.app/tasks/getall"
+        "https://backend-edc-sequelize-production.up.railway.app/tasks/getall"
       )
       .then((response) => {
         setTasks(response.data);
