@@ -1,70 +1,48 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# TASK-MANAGER-EDC
+Proyecto FrontEnd desarrollado con React.js. Gestor de reservas de tareas. 
 
-## Available Scripts
+### Datos generales
 
-In the project directory, you can run:
+**- Autor del proyecto:** Alejandro López Bellés
 
-### `npm start`
+**- Título del proyecto:** Task-Manager-Edc
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**- Fecha:** 07/08/2023
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+ ### Tecnologías  y dependencias
+El proyecto se ha desarrollado utilizando las siguientes tecnologías y dependencias:
 
-### `npm test`
+> React: Biblioteca de JavaScript para construir interfaces de usuario interactivas y reactivas.
+> Bootstrap: Framework CSS que proporciona estilos predefinidos y componentes para el diseño y la estructura de la interfaz de usuario.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ ### Acceso a la aplicación
+ 
+La aplicación está desplegada en Amazon Web Services y se puede acceder a ella a través del siguiente enlace:
 
-### `npm run build`
+> [https://main.d2ze8qbjn1wcbz.amplifyapp.com/](https://main.dphxz5dtyw9xe.amplifyapp.com/)
+ 
+![image](https://github.com/alopezbelles/frontend-edc-react/assets/113507322/ec4160ec-e863-4d8e-936e-1ffea899a663)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ ### Descripción general del proyecto 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+La aplicación es un gestor de tareas personales y ha sido diseñada y desarrollada utilizando React y Bootstrap. El Frontend consiste en una única página que recoge todas las funcionalidades de la web.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+La interfaz de la aplicación se comunica con una base de datos SQL a través de una API desarrollada con PHP+LARAVEL+COMPOSER+ARTISAN. Esto significa que la aplicación es capaz de realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) en los registros de la base de datos.
 
-### `npm run eject`
+![image](https://github.com/alopezbelles/frontend-edc-react/assets/113507322/582a82c4-572b-4ab6-96b0-63468bcc9149)
+![image](https://github.com/alopezbelles/frontend-edc-react/assets/113507322/5bf61673-4f19-4639-b005-48c88d022534)
+![image](https://github.com/alopezbelles/frontend-edc-react/assets/113507322/00ff544d-068f-4bab-baa0-39d1a815a612)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+A través de la aplicación, los usuarios pueden recuperar todos los registros almacenados en la base de datos, actualizar registros existentes, eliminar registros y agregar nuevos registros.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+En resumen, se trata de un proyecto Frontend desarrollado con React.js que actúa como un gestor de tareas, permitiendo a los usuarios interactuar con una base de datos SQL a través de una interfaz intuitiva y funcional. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**-->ADAPTACIÓN A DISPOSITIVOS**
 
-## Learn More
+La aplicación ha sido diseñada con un enfoque responsive, lo que significa que se adapta automáticamente a cualquier dispositivo, brindando una experiencia de usuario óptima en diferentes tamaños de pantalla. Esto garantiza que los usuarios puedan acceder y utilizar la aplicación de manera efectiva, sin importar si lo hacen desde un dispositivo móvil, una tablet o una computadora de escritorio.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![mockup-responsive-lr](https://github.com/alopezbelles/frontend-edc-react/assets/113507322/3c95ac4c-d4ec-4e0c-98b3-85e5e8251feb)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
