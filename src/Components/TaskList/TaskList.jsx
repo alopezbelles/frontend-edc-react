@@ -14,7 +14,8 @@ function TaskList() {
   const [selectedTask, setSelectedTask] = useState(null);
   const [newTitle, setNewTitle] = useState("");
   const [newDescription, setNewDescription] = useState("");
-
+  const [newCategory, setNewCategory] = useState(""); // Agregar el estado newCategory
+  const [newStatus, setNewStatus] = useState(""); //
   useEffect(() => {
     axios
       .get(
@@ -39,23 +40,24 @@ function TaskList() {
     setSelectedTask(task);
     setNewTitle(task.title);
     setNewDescription(task.description);
+    setNewCategory(task.category); // Establecer la categoría actual
+    setNewStatus(task.status); // Establecer el estado actual
     setShowModal(true);
   };
 
   const handleUpdateNowClick = () => {
-    const newCategory =
-      selectedStatuses[
-        tasks.findIndex((task) => task.id_task === selectedTask?.id_task)
-      ];
+    const newCategoryValue = newCategory;
+    const newStatusValue = newStatus;
 
     axios
-      .post(
+      .put(
         "https://backend-edc-sequelize-production.up.railway.app/tasks/edittask",
         {
           id: selectedTask.id_task,
           title: newTitle,
           description: newDescription,
-          status: newCategory,
+          status: newStatusValue,
+          category: newCategoryValue
         }
       )
       .then((response) => {
@@ -102,18 +104,8 @@ function TaskList() {
               <Col className="col1Tasks">Title: {task.title}</Col>
               <Col className="col2Tasks">Description: {task.description}</Col>
               <Col className="col2Tasks">Status: {task.status}</Col>
-              <Col className="col3Tasks">
-                <Form.Select
-                  className="formSelectDesign"
-                  value={selectedStatuses[index]}
-                  onChange={(event) => handleCategoryChange(event, index)}
-                  data-id={task.id_task}
-                >
-                  <option value="work">Work</option>
-                  <option value="personal">Personal</option>
-                  <option value="studies">Studies</option>
-                </Form.Select>
-              </Col>
+              <Col className="col2Tasks">Category: {task.category}</Col>
+
               <div className="buttonsDiv">
                 <Button
                   className="buttonDesign"
@@ -163,25 +155,23 @@ function TaskList() {
             <Form.Group controlId="formCategory">
               <Form.Label>Category</Form.Label>
               <Form.Select
-                value={
-                  selectedStatuses[
-                    tasks.findIndex(
-                      (task) => task.id_task === selectedTask?.id_task
-                    )
-                  ]
-                }
-                onChange={(event) =>
-                  handleCategoryChange(
-                    event,
-                    tasks.findIndex(
-                      (task) => task.id_task === selectedTask?.id_task
-                    )
-                  )
-                }
+                value={newCategory} // Usar newCategory en lugar de selectedStatuses
+                onChange={(e) => setNewCategory(e.target.value)}
               >
                 <option value="work">Work</option>
                 <option value="personal">Personal</option>
                 <option value="studies">Studies</option>
+              </Form.Select>
+            </Form.Group>
+            <Form.Group controlId="formStatus">
+              <Form.Label>Status</Form.Label>
+              <Form.Select
+                value={newStatus} // Usar newStatus en lugar de selectedStatuses
+                onChange={(e) => setNewStatus(e.target.value)}
+              >
+                <option value="pending">Pending</option>
+                <option value="completed">Completed</option>
+                <option value="not completed">Not Completed</option>
               </Form.Select>
             </Form.Group>
           </Form>

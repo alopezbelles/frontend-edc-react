@@ -7,8 +7,8 @@ h2 {
   font-family: "Raleway", sans-serif;
 }
 
-.containerTaskList{
-    background-color: #D6D6D1;
+.containerTaskList {
+  background-color: #d6d6d1;
 }
 
 .row1TaskList {
@@ -17,7 +17,6 @@ h2 {
   justify-content: center;
   align-items: center;
   /* width: 100%; */
-
 }
 
 .col1Tasks {
@@ -26,7 +25,7 @@ h2 {
 }
 
 .col2Tasks {
-    flex: 1;
+  flex: 1;
 }
 
 .col3Tasks {
@@ -47,37 +46,33 @@ h2 {
 }
 
 .buttonDesign {
-    margin: 2px;
-  }
+  margin: 2px;
+}
 
-.buttonsDiv{
-    margin-bottom: 2em;
+.buttonsDiv {
+  margin-bottom: 2em;
 }
 
 .modalDesign {
-    background-color: #D6D6D1; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-family: "Raleway", sans-serif;
+  background-color: #d6d6d1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+}
 
-  }
-
-.imputDesign{
-    width: 100%;
-    height: 2.5em;
-    font-family: "Raleway", sans-serif;
-
+.imputDesign {
+  width: 100%;
+  height: 2.5em;
+  font-family: "Raleway", sans-serif;
 }
 
 .task-list li {
   border-bottom: 1px solid black;
 }
 
-.modalTitleDesign{
+.modalTitleDesign {
   font-family: "Raleway", sans-serif;
-
-
 }
